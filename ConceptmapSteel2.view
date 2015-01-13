@@ -853,9 +853,9 @@ var entityNameArr=(view.typeinfo.entityName).split(",");
 var selectionBox="content#1";
 var selectionNumIndex=parseInt(selectionBox.split("#")[1])-1;
 var conceptmapData=buildConceptMapData(selectionBox,data2);
-
- var directoryType={"episode":view.typeinfo.data.transitStnCol,
-  "perspective":view.typeinfo.data.finStnCol,"theme":view.typeinfo.data.finStnCol};
+console.log("conceptmapDataProcessed",JSON.stringify(conceptmapData));
+ var directoryType={"episode":view.typeinfo.data.fields.transitStnCol[0].name,
+  "perspective":view.typeinfo.data.fields.finStnCol[0].name,"theme":view.typeinfo.data.fields.finStnCol[0].name};
   var prefix=d3.formatPrefix(view.typeinfo.prefixMagnitude);
   var formatValue;
   eval(view.typeinfo.formatValue);
