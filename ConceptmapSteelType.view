@@ -552,7 +552,7 @@
       "formatValue":"formatValue=function(value) {return ' '+d3.round(prefix.scale(value),2)+prefix.symbol;}"
     }
   },
-  "includes":["/elx/lib/conceptmapOriginalJSmatch.js"],
+  "includes":["/elx/lib/conceptmapOriginalJSmatch3.js"],
   "edit-section":[{
     "id":"view",
     "name":"View"
