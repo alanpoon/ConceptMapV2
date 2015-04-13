@@ -1,0 +1,54 @@
+{
+   "jsonClass":"Bundle",
+   "type":"ConceptmapSteelType",
+   "data":{
+      "series":{
+         "sort":"series-asc"
+      },
+      "keys":{
+         "sort":"key-asc"
+      },
+      "fields":{
+         "transitStnCol":[
+            {
+               "name":"ds_4a_supplier.stock_group",
+               "id":"|"
+            }
+         ],
+         "finStnCol":[
+            {
+               "name":"ds_4a_supplier.supplier_code",
+               "id":"|"
+            }
+         ],
+         "finStnTypeCol":[
+            {
+               "name":"ds_4a_supplier.Location",
+               "id":"|"
+            }
+         ],
+         "operable":{
+            "values":[
+               {
+                  "id":"Amount",
+                  "name":"ds_4a_supplier.total_amount",
+                  "op":"sum"
+               },
+               {
+                  "id":"Tonnage",
+                  "name":"ds_4a_supplier.total_tonnage",
+                  "op":"sum"
+               }
+            ]
+         }
+      }
+   },
+   "height":647.7,
+   "width":780.7,
+   "themeName":"Local,Local",
+   "perspectiveName":"Foreign,Foreign",
+   "episodeName":"SteelType,SteelType",
+   "entityName":"Amount: ,Tonnage: ",
+   "prefixMagnitude":"1000",
+   "formatValue":"formatValue=function(value) {return ' '+d3.round(prefix.scale(value),2)+prefix.symbol;}"
+}
