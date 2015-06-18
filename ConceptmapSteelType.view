@@ -788,7 +788,7 @@ elx.bundle.type.ConceptmapSteelType = {
 <<<<<<<=view-html=
 <style>
 svg{font-family:Abel,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:15px}.episode > rect{stroke:#fff;stroke-width:1.5px}
-.link{fill:none}.episode,.node,.detail text,.all-episodes{cursor:pointer}.all-episodes{fill:#aaa}.detail a text:hover,text.all-episodes:hover{text-decoration:underline}
+.link{fill:none}.episode,.node,.detail text,.all-episodes{cursor:pointer}.all-episodes{fill:#fff}.detail a text:hover,text.all-episodes:hover{text-decoration:underline}
 #graph-info{position:absolute;width:140px;right:0;bottom:0;padding-bottom:10px}.maptastic{position:absolute!important;left:-10000px!important;display:block!important}@font-face{font-family:'Abel';font-style:normal;font-weight:400;src:local(Abel),local(Abel-Regular),url(http://themes.googleusercontent.com/static/fonts/abel/v3/EAqh528fFdbUek8UOky4sA.woff) format("woff")}
 </style>
   <div class="header_${id}">
@@ -831,7 +831,7 @@ data();
 	var div = $("#${id}");
 	var view = elx.host.getViewById("${id}");
 	var viewId=view.id;
- console.log("id: ",'${id}',"view: ",view);
+ console.log("view.typeinfo conceptmap: ",JSON.stringify(view.typeinfo));
 
  
   if (view.data.jsonClass === "DataEmbedded"){
@@ -938,7 +938,7 @@ console.log("conceptmapDataProcessed",JSON.stringify(conceptmapData));
   	var keyIdArr=[];
 	
     _.each(idArr, function(d, i) {
-	  if (d.contains("#{") == true || d.contains("|") == true) {
+	  if (_.str.include(d,"#{") == true || _.str.include(d,"|") == true) {
             processedIdArr.push(d);
   } else  {
 
@@ -975,7 +975,7 @@ console.log("conceptmapDataProcessed",JSON.stringify(conceptmapData));
         if (!obj.hasOwnProperty(i)) continue;
         if (typeof obj[i] == 'object') {
             objects = objects.concat(getArr(obj[i], k, view));
-        } else if (i.contains(k) == true) {
+        } else if (_.str.include(i,k) == true) {
             if (k == "name") {
                 objects.push(cutTableName(obj[i], view));
             } else
@@ -1001,7 +1001,7 @@ console.log("conceptmapDataProcessed",JSON.stringify(conceptmapData));
   var levelColumnArray=[];
      objKey.forEach(function(key) {
         var columnNameObj, model_keyObj;
-  if (key.contains("#[") === true) { // belongs to content
+  if (_.str.include(key,"#[") === true) { // belongs to content
             model_keyObj = key.replace(/.*\[|\]/g, "");
             columnNameObj = key.replace(/\#.*/, "");
  			contentInfoArray.push(model_keyObj);
@@ -1019,7 +1019,7 @@ console.log("conceptmapDataProcessed",JSON.stringify(conceptmapData));
   if(i===0) console.log("d!!",JSON.stringify(d));
         for (propertyName in d) {
             
-       if (propertyName.contains("#[") === true) {
+       if (_.str.include(propertyName,"#[") === true) {
 	   
                   contentArr.push(d[propertyName]);
 				            }
